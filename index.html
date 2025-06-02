@@ -1,1 +1,106 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>@eco_vacio</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #ccc;
+      font-family: monospace;
+      margin: 0;
+      overflow: hidden;
+    }
+    .header {
+      padding: 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #999;
+    }
+    .posts {
+      padding: 1.5rem;
+    }
+    .post {
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 2px solid #333;
+    }
+    .date {
+      font-size: 0.8rem;
+      color: #555;
+    }
+    .content {
+      margin-top: 0.4rem;
+    }
+    .floating-text {
+      position: absolute;
+      color: #f00;
+      font-size: 0.9rem;
+      opacity: 0.3;
+      pointer-events: none;
+      animation: fadeInOut 12s infinite;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>@eco_vacio</h1>
+    <div>Desaparecido desde el 20/05/2025.</div>
+  </div>
+  <div class="posts">
+    <div class="post"><div class="date">19/05/2025</div><div class="content">"Nadie se dará cuenta de que me fui... ni siquiera yo."</div></div>
+    <div class="post"><div class="date">18/05/2025</div><div class="content">"Me grité tanto al espejo que terminó por quebrarse."</div></div>
+    <div class="post"><div class="date">17/05/2025</div><div class="content">"No duele estar roto. Duele seguir aquí."</div></div>
+  </div>
+  <script>
+    const frases = [
+      "Ser olvidado es tu destino. Lo estás cumpliendo bien.",
+      "Incluso tus lágrimas están vacías.",
+      "No estás solo, estás con tu propia sombra. Y te odia.",
+      "Te gritan que resistas. Pero ni ellos creen que puedas.",
+      "¿Recuerdas la última vez que fuiste feliz? No, no lo haces.",
+      "Respirar es una costumbre, no una necesidad.",
+      "Solo un código fallido esperando a ser depurado.",
+      "Ni tus pesadillas quieren quedarse contigo.",
+      "Tu final ya llegó. Tú no lo has aceptado.",
+      "Cada paso que das, el suelo desaparece.",
+      "Tu eco es el único que todavía te responde.",
+      "El mundo no perdió tu voz. Nunca la escuchó.",
+      "Eras un experimento emocional. Y fracasaste.",
+      "Eres una nota a pie de página en el libro del olvido.",
+      "Te enseñaron a fingir sonrisas. Lo hiciste demasiado bien.",
+      "Tú no eres el error. Tú eres el fallo completo del sistema.",
+      "No es que no te amen. Es que no existes para ellos.",
+      "¿Creíste que ibas a cambiar algo? Ni siquiera tú te cambiaste.",
+      "Naciste para caer. Solo estás cumpliendo tu programación.",
+      "El consuelo es un placebo. El dolor es el único real."
+    ];
+
+    function createFloatingText(text) {
+      const span = document.createElement('span');
+      span.textContent = text;
+      span.className = 'floating-text';
+      span.style.top = Math.random() * window.innerHeight + 'px';
+      span.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(span);
+      setTimeout(() => span.remove(), 12000);
+    }
+
+    setInterval(() => {
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      createFloatingText(frase);
+    }, 5000);
+  </script>
+</body>
+</html>
